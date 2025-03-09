@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import {
   SignedIn,
   SignedOut,
-  SignInButton,
   UserButton,
 } from "@clerk/clerk-react";
 
@@ -22,14 +21,31 @@ function Navbar() {
       <div className="md:hidden">
         {/* MOBILE BUTTON */}
         <div
-          className="cursor-pointer text-2xl"
+          className="cursor-pointer text-4xl"
           onClick={() => setOpen((prev) => !prev)}
         >
-          {open ? "X" : "="}
+          {/* {open ? "X" :  "☰"} */}
+          <div className="flex flex-col gap-[5.4px]">
+            <div
+              className={`h-[3px] rounded-md w-6 bg-black origin-left transition-all ease-in-out ${
+                open && "rotate-45"
+              }`}
+            ></div>
+            <div
+              className={`h-[3px] rounded-md w-6 bg-black transition-all ease-in-out ${
+                open && "opacity-0"
+              }`}
+            ></div>
+            <div
+              className={`h-[3px] rounded-md w-6 bg-black origin-left transition-all ease-in-out ${
+                open && "-rotate-45"
+              }`}
+            ></div>
+          </div>
         </div>
         {/* MOBILE LINK LIST */}
         <div
-          className={`w-full h-screen flex flex-col items-center justify-center gap-8 font-medium text-lg absolute top-16 transition-all ease-in-out ${
+          className={`w-full h-screen bg-[#e6e6ff] flex flex-col items-center justify-center gap-8 font-medium text-lg absolute top-16 transition-all ease-in-out ${
             open ? "-right-0" : "-right-[100%]"
           }`}
         >
